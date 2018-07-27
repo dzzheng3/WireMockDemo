@@ -1,20 +1,15 @@
 package com.example.nzheng2.bitcoinpricetracker.data
 
 import com.google.auto.value.AutoValue
+import com.google.gson.Gson
+import com.google.gson.TypeAdapter
 import com.google.gson.annotations.SerializedName
 
-@AutoValue
-abstract class BitCoinRate {
-    @SerializedName("x")
-    abstract fun timePoint(): Long
+data class BitCoinRate(
 
-    @SerializedName("y")
-    abstract fun rateValue(): Float
+        @SerializedName("x")
+        val timePoint: Long,
 
-    @AutoValue.Builder
-    interface Builder {
-        fun timePoint(timePoint: Long): Builder
-        fun rateValue(rateValue: Float): Builder
-        fun build(): BitCoinRate
-    }
-}
+        @SerializedName("y")
+        val rateValue: Float
+)
